@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.anythy.mapper.ItemMapper" >
+    <resultMap id="BaseResultMap" type="com.anythy.entity.Item" >
+        <id column="id" property="id" jdbcType="BIGINT" />
+        <result column="name" property="name" jdbcType="VARCHAR" />
+        <result column="desc" property="desc" jdbcType="VARCHAR" />
+        <result column="price" property="price" javaType="INTEGER"/>
+        <result column="unit" property="unit" jdbcType="INTEGER" />
+        <result column="type" property="type" jdbcType="INTEGER" />
+        <result column="status" property="status" jdbcType="INTEGER" />
+        <result column="remark" property="remark" jdbcType="VARCHAR" />
+    </resultMap>
+
+    <sql id="Base_Column_List" >
+        `id`, `name`, `desc`, `price`, `unit`, `type`, `status`, `remark`
+    </sql>
+
+    <select id="getAll" resultMap="BaseResultMap"  >
+        SELECT
+        <include refid="Base_Column_List" />
+        FROM item
+    </select>
+
+    <update id="updateOne" parameterType="Item"  >
+        UPDATE item
+        SET
+          `name` = #{name},
+          `desc` = #{desc},
+          price = #{price},
+          unit = #{unit},
+          `type` = #{type},
+          status = #{status},
+          remark = #{remark}
+          WHERE  `id` = #{id}
+    </update>
+
+    <insert id="saveOne" parameterType="Item">
+        INSERT INTO item
+        (
+          `name`, `desc`, `price`, `unit`, `type`, `status`, `remark`
+        )
+        VALUES
+        (
+          #{name},#{desc},#{price},#{unit},#{type},#{status},#{remark}
+        )
+    </insert>
+</mapper>
