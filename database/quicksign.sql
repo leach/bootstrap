@@ -1,0 +1,1 @@
+create table wx-userinfo (id bigint,name varchar(30),wxcode varchar(100))
