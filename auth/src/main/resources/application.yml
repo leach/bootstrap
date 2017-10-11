@@ -1,0 +1,30 @@
+#securityConfig
+securityConfig:
+  globalUser:
+    name: leach
+    password: 12306
+    roles: USER,TEST
+  defaultUrl:
+    successUrl: /home
+    loginUrl: /login
+    failureUrl: /login?error
+
+
+#spring
+spring:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/one?useUnicode=true&characterEncoding=utf-8
+    username: leach
+    password: leach
+  thymeleaf:
+    cache: false
+    mode: HTML5
+    encoding: utf-8
+    prefix: classpath:/templates/
+    suffix: .html
+    content-type: text/html
+
+logging:
+  level:
+    root: info

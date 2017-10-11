@@ -14,8 +14,6 @@ import java.security.KeyPair;
 /**
  * Created by Root on 2017/9/17.
  */
-@Configuration
-@EnableAuthorizationServer
 public class OAuthConfigurer extends AuthorizationServerConfigurerAdapter {
 
     @Bean
