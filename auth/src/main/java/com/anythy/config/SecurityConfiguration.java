@@ -1,12 +1,12 @@
 package com.anythy.config;
 
-import com.anythy.authentication.CustomAuthenticationProvider;
+import com.anythy.authentication.CustomLoginAuthenticationProvider;
+import com.anythy.userDetails.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
-import org.springframework.core.env.Environment;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -30,7 +30,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private String successUrl;
 
     @Autowired
-    private CustomAuthenticationProvider provider;
+    private CustomLoginAuthenticationProvider provider;
+
+    @Autowired
+    private CustomUserDetailsService userDetailsService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -57,6 +60,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        provider.setUserDetailsService(userDetailsService);
         auth.authenticationProvider(provider);
     }
 }
