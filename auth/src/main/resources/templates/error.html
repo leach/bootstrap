@@ -11,32 +11,15 @@
     <!-- Bootstrap -->
     <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
     <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <form class="form-signin" th:action="@{/login}" method="post">
-                <h2 class="form-signin-heading" th:text="${nowDate}">Please sign in</h2>
-                <label for="inputText" class="sr-only">Username</label>
-                <input type="text" id="inputText" name="username" class="form-control" placeholder="Username" required="" autofocus="">
-                <label for="inputPassword" class="sr-only">Password</label>
-                <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
-                <div class="checkbox">
-                    <label>
-                        <input type="checkbox" value="remember-me"> Remember me
-                    </label>
-                </div>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-                <span th:text="${session.SPRING_SECURITY_LAST_EXCEPTION}"></span>
-            </form>
-        </div>
-        <div class="col">
-        </div>
-        <div class="col">
-        </div>
-    </div>
-</div>
+<h1>Error</h1>
+
+</body>
+
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.bootcss.com/popper.js/1.9.3/umd/popper.min.js" integrity="sha384-knhBOwpf8/28D6ygAjJeb0STNDZqfPbKaWQ8wIz/xgSc0xXwKsKhNype8fmfMka2" crossorigin="anonymous"></script>
@@ -44,5 +27,4 @@
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js"></script>
-</body>
 </html>

@@ -19,6 +19,6 @@ public class UserRoleServiceImpl implements UserRoleService {
 
     @Override
     public List<UserRole> findByUserId(int userId) {
-        return null;
+        return mapper.findByUserId(userId);
     }
 }

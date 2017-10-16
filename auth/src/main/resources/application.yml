@@ -1,14 +1,8 @@
 #securityConfig
 securityConfig:
-  globalUser:
-    name: leach
-    password: 12306
-    roles: USER,TEST
-  defaultUrl:
     successUrl: /home
     loginUrl: /login
     failureUrl: /login?error
-
 
 #spring
 spring:
@@ -24,7 +18,13 @@ spring:
     prefix: classpath:/templates/
     suffix: .html
     content-type: text/html
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      additional-paths: auth/target/classes
 
 logging:
   level:
     root: info
+debug: true

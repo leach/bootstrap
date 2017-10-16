@@ -5,6 +5,7 @@ import com.anythy.userDetails.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -19,22 +20,17 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
+@EnableConfigurationProperties(SecuritySettings.class)
 @Order(SecurityProperties.ACCESS_OVERRIDE_ORDER)
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
-
-    @Value("${securityConfig.defaultUrl.failureUrl}")
-    private String failureUrl;
-    @Value("${securityConfig.defaultUrl.loginUrl}")
-    private String loginUrl;
-    @Value("${securityConfig.defaultUrl.successUrl}")
-    private String successUrl;
-
     @Autowired
     private CustomLoginAuthenticationProvider provider;
 
     @Autowired
     private CustomUserDetailsService userDetailsService;
 
+    @Autowired
+    private SecuritySettings settings;
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //路由策略和访问权限的简单配置
@@ -44,11 +40,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .authenticated()
                 .and()
                 .formLogin()
-                .failureUrl(failureUrl)
-                .loginPage(loginUrl).permitAll()
-                .defaultSuccessUrl(successUrl)
+                .failureUrl(settings.getFailureUrl())
+                .loginPage(settings.getLoginUrl()).permitAll()
+                .defaultSuccessUrl(settings.getLoginSuccessUrl())
                 .and()
-                .logout().permitAll();
+                .logout().logoutUrl(settings.getLogoutUrl()).permitAll()
+                .and()
+                .exceptionHandling().accessDeniedPage(settings.getDeniedPage());
 
         super.configure(http);
     }
@@ -60,7 +58,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
      */
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        provider.setUserDetailsService(userDetailsService);
         auth.authenticationProvider(provider);
     }
 }
