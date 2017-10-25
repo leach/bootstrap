@@ -24,6 +24,7 @@ spring:
     restart:
       additional-paths: auth/target/classes
 
+
 logging:
   level:
     root: info

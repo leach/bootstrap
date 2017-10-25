@@ -74,6 +74,7 @@
       <list>
         <option value="$PROJECT_DIR$/auth/pom.xml" />
         <option value="$PROJECT_DIR$/spring/pom.xml" />
+        <option value="$PROJECT_DIR$/wechat/pom.xml" />
       </list>
     </option>
   </component>

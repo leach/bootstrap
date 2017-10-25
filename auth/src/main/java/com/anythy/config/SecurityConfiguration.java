@@ -52,7 +52,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * 配置内存用户
+     * 配置权限管理
      * @param auth
      * @throws Exception
      */
