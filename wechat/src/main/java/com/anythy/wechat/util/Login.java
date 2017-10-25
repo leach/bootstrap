@@ -17,7 +17,7 @@ import java.io.InputStream;
  * Created by Leach on 0027 2017/9/27.
  */
 public class Login {
-    private String iamgeImg="D:\\jj";
+    private String iamgeImg= Login.class.getResource("/").getPath().toString() + "qrcode";
     String redirect_uri="";
     CloseableHttpClient https = HttpClients.createDefault();
 
@@ -88,7 +88,7 @@ public class Login {
             if (!file.exists()) {
                 file.mkdirs();
             }
-            fos = new FileOutputStream("D:\\jj\\test.jpg");
+            fos = new FileOutputStream(iamgeImg + "\\test.jpg");
             byte[] data = new byte[1024];
             int len = 0;
             while ((len = inputStream.read(data)) != -1) {

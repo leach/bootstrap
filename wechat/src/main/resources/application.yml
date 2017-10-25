@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+
+
+wechat:
+  indexUrl: https://wx.qq.com/
+  qrcodeUrl: https://login.weixin.qq.com/qrcode/
+  qrcodePath: /qrcode
+
