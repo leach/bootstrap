@@ -24,4 +24,4 @@ apple/.idea/
 apple/apple.iml
 apple/target/
 */.idea/
-.idea/
+.idea/*
