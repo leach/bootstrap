@@ -3,6 +3,7 @@ package com.anythy.wechat.util;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
@@ -27,6 +28,32 @@ public class Login {
         login.initPage();
         String uuid = login.getPng1();
         login.getPng2(uuid);
+
+        while(true){
+            int cf= login.checklogin(uuid);
+            if(cf==3)
+            {
+                System.out.println("已在手机端确认");
+                break;
+            }
+            if(cf==2)
+            {
+                uuid = login.getPng1();
+                if(!"".equals(uuid))
+                {
+                    login.getPng2(uuid);
+                }
+            }
+            if(cf==1)
+            {
+                continue;
+            }
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
     }
     public void initPage(){
         HttpGet httpPost=new HttpGet("https://wx.qq.com/");
@@ -100,5 +127,78 @@ public class Login {
             e.printStackTrace();
         }
         System.out.println(html);
+    }
+
+
+    public int checklogin(String appid)
+    {
+        String url="https://login.wx.qq.com/cgi-bin/mmwebwx-bin/login?loginicon=true&uuid="+appid+"&tip=0&r=123&_="+System.currentTimeMillis();
+        System.out.println(url);
+        HttpGet httpPost=new HttpGet(url);
+        httpPost.setHeader("Host", "login.wx.qq.com");
+        httpPost.setHeader("Pragma", "no-cache");
+        httpPost.setHeader("Referer", "https://wx.qq.com/");
+        httpPost.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36");
+        httpPost.setHeader("Connection", "keep-alive");
+        int timeout = 200000;
+        // System.out.println("Executing request " +
+        // httpget.getRequestLine());
+        RequestConfig config = RequestConfig.custom().setSocketTimeout(timeout).setConnectTimeout(timeout)
+                .setConnectionRequestTimeout(timeout).build();
+        httpPost.setConfig(config);
+        String html="";
+        try {
+            HttpResponse response = https.execute(httpPost);
+            HttpEntity entitySort = response.getEntity();
+            html=EntityUtils.toString(entitySort, "utf-8");
+            System.out.println(html);
+            if(html.indexOf("408")!=-1)
+            {
+                return 1;
+            }
+            if(html.indexOf("400")!=-1)
+            {
+
+                return 2;
+            }
+            if(html.indexOf("200")!=-1)
+            {
+                int start=html.indexOf("https");
+                html=html.substring(start).replace("\";", "");
+                this.redirect_uri=html;
+                System.out.println(this.redirect_uri);
+                return 3;
+            }
+        } catch (ClientProtocolException e) {
+
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public void login()
+    {
+        HttpGet httpPost=new HttpGet(this.redirect_uri);
+        httpPost.setHeader("Host", "wx.qq.com");
+        httpPost.setHeader("Pragma", "no-cache");
+        httpPost.setHeader("Referer", "https://wx.qq.com/?&lang=zh_CN");
+        httpPost.setHeader("User-Agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36");
+        httpPost.setHeader("Connection", "keep-alive");
+        String html="";
+        try {
+            HttpResponse response = https.execute(httpPost);
+            HttpEntity entitySort = response.getEntity();
+            html=EntityUtils.toString(entitySort, "utf-8");
+            System.out.println(html);
+
+        } catch (ClientProtocolException e) {
+
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     }
 }
