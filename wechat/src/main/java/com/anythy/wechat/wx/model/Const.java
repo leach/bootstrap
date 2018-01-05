@@ -1,6 +1,6 @@
 package com.anythy.wechat.wx.model;
 
-import io.github.biezhi.wechat.Utils;
+import com.anythy.wechat.wx.common.Utils;
 
 import java.util.Arrays;
 import java.util.HashSet;

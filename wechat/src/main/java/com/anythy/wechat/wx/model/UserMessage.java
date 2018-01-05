@@ -1,7 +1,7 @@
 package com.anythy.wechat.wx.model;
 
 import com.google.gson.JsonObject;
-import io.github.biezhi.wechat.api.WechatApi;
+import com.anythy.wechat.wx.api.WechatApi;
 
 /**
  * 用户消息

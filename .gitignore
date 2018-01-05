@@ -5,3 +5,8 @@ apple/apple.iml
 apple/target/
 */.idea/
 .idea/
+*.iml
+*/.mvn/
+*/mvnw
+*/mvnw.cmd
+*/target/

@@ -1,6 +1,6 @@
 package com.anythy.wechat.wx.model;
 
-import io.github.biezhi.wechat.api.WechatApi;
+import com.anythy.wechat.wx.api.WechatApi;
 
 /**
  * 群消息
