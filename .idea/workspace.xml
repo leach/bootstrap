@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="078d203b-8cac-4f14-9c99-7b6424ab7892" name="Default" comment="添加importer">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/spring/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/wechat/src/main/java/com/anythy/wechat/util/QQTool.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+    <list default="true" id="078d203b-8cac-4f14-9c99-7b6424ab7892" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/auth/.gitignore" afterPath="$PROJECT_DIR$/auth/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/importer/.gitignore" afterPath="$PROJECT_DIR$/importer/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/quicksign/.gitignore" afterPath="$PROJECT_DIR$/quicksign/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wechat/.gitignore" afterPath="$PROJECT_DIR$/wechat/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wechat/pom.xml" afterPath="$PROJECT_DIR$/wechat/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wechat/src/main/java/com/anythy/wechat/wx/model/Const.java" afterPath="$PROJECT_DIR$/wechat/src/main/java/com/anythy/wechat/wx/model/Const.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wechat/src/main/java/com/anythy/wechat/wx/model/Environment.java" afterPath="$PROJECT_DIR$/wechat/src/main/java/com/anythy/wechat/wx/model/Environment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wechat/src/main/java/com/anythy/wechat/wx/model/GroupMessage.java" afterPath="$PROJECT_DIR$/wechat/src/main/java/com/anythy/wechat/wx/model/GroupMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wechat/src/main/java/com/anythy/wechat/wx/model/UserMessage.java" afterPath="$PROJECT_DIR$/wechat/src/main/java/com/anythy/wechat/wx/model/UserMessage.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/auth/target/" />
@@ -109,8 +97,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/auth/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="286">
+              <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -843,11 +831,18 @@
       <option name="project" value="LOCAL" />
       <updated>1509370503384</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="添加wechat">
+      <created>1515116418056</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1515116418056</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="107224000" />
+    <option name="totallyTimeSpent" value="107279000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -940,7 +935,8 @@
     <MESSAGE value="commit" />
     <MESSAGE value="自定义provider登录验证" />
     <MESSAGE value="修改" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改" />
+    <MESSAGE value="添加wechat" />
+    <option name="LAST_COMMIT_MESSAGE" value="添加wechat" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1293,8 +1289,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/auth/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state relative-caret-position="286">
+          <caret line="13" column="5" lean-forward="true" selection-start-line="13" selection-start-column="5" selection-end-line="13" selection-end-column="5" />
           <folding />
         </state>
       </provider>
