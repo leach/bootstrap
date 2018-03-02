@@ -8,3 +8,9 @@ wechat:
   qrcodeUrl: https://login.weixin.qq.com/qrcode/
   qrcodePath: /qrcode
 
+#返回的前缀   目录对应src/main/webapp下
+spring:
+  mvc:
+    view:
+      prefix: /pages/
+      suffix: .jsp

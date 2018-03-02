@@ -11,6 +11,9 @@ import org.xml.sax.helpers.XMLReaderFactory;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Iterator;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class XlsxServiceImpl {
     /**
@@ -69,7 +72,21 @@ public class XlsxServiceImpl {
 
 
     public static void main(String[] args) throws Exception {
+        Pattern p = Pattern.compile("[A-Z]+");
+        Scanner s = new Scanner(System.in);
+        String a = s.nextLine();
+        while (!a.equals("e")){
+            Matcher m = p.matcher(a);
+            if(m.find()){
+                System.out.println("m.group()" + m.groupCount());
+                System.out.println("m.group(0):" + m.group(0));
+                System.out.println("m.group()" + m.group());
+            }
+            a = s.nextLine();
+        }
+
+        /*
         XlsxServiceImpl example = new XlsxServiceImpl();
-        example.processOneSheet("D:\\新建文件夹\\ssqq.xlsx");
+        example.processOneSheet("D:\\新建文件夹\\ssqq.xlsx");*/
     }
 }

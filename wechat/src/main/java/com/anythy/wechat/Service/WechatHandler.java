@@ -7,8 +7,8 @@ import org.springframework.stereotype.Component;
 @Component
 public class WechatHandler {
 
-    @Autowired
-    WechatConfig wechatConfig;
+//    @Autowired
+//    WechatConfig wechatConfig;
 
     public void init(){
 

@@ -16,6 +16,7 @@ import org.xml.sax.helpers.DefaultHandler;
  */
 public class SheetHandler extends DefaultHandler {
     private SharedStringsTable sst;
+    private String index;
     private String lastContents;
     private boolean nextIsString;
 
@@ -28,7 +29,8 @@ public class SheetHandler extends DefaultHandler {
         // c => cell
         if(name.equals("c")) {
             // Print the cell reference
-            System.out.print(attributes.getValue("r") + " - ");
+//            System.out.print(attributes.getValue("r") + " - ");
+            index = attributes.getValue("r");
             // Figure out if the value is an index in the SST
             String cellType = attributes.getValue("t");
             if(cellType != null && cellType.equals("s")) {
